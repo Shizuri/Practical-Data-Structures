@@ -14,4 +14,21 @@ public class SinglyLinkedList {
 		newNode.nextNode = first;
 		first = newNode;
 	}
+	
+	public Node deleteFirst() {
+		Node temp = first;
+		first = first.nextNode;
+		return temp;
+	}
+	
+	public void displayList() {
+		System.out.println("List (first --> last) ");
+		Node current = first;
+		while(current != null) {
+			current.displayNode();
+			current = current.nextNode;
+		}
+		
+		System.out.println();
+	}
 }
