@@ -1,14 +1,12 @@
 package ds.circularLinkedList;
 
-import ds.singlyLinkedList.Node;
+public class CircularLinkedListChar {
 
-public class CircularLinkedList {
-
-	private Node first;
-	private Node last;
+	private NodeChar first;
+	private NodeChar last;
 	
-	public void insertFirst(int data) {
-		Node newNode = new Node();
+	public void insertFirst(char data) {
+		NodeChar newNode = new NodeChar();
 		newNode.data = data;
 		
 		if(isEmpty()) {
@@ -19,8 +17,8 @@ public class CircularLinkedList {
 		first = newNode;
 	}
 	
-	public void insertLast(int data) {
-		Node newNode = new Node();
+	public void insertLast(char data) {
+		NodeChar newNode = new NodeChar();
 		newNode.data = data;
 		
 		if(isEmpty()) {
@@ -32,8 +30,8 @@ public class CircularLinkedList {
 		}
 	}
 	
-	public int deleteFirst() {
-		Node temp = first;
+	public char deleteFirst() {
+		NodeChar temp = first;
 		first = first.nextNode;
 		
 		if(first.nextNode == null) {
@@ -43,16 +41,16 @@ public class CircularLinkedList {
 		return temp.data;
 	}
 	
-	public int deleteLast() {
+	public char deleteLast() {
 		if(isEmpty()) {
 			System.out.println("List is empty!");
-			return -1;
+			return '!';
 		} else {
-			Node current = first;
-			int result = -1;
+			NodeChar current = first;
+			char result = ' ';
 			if(current.nextNode == null) {
 				first = null;
-				int tmp = current.data;
+				char tmp = current.data;
 				current = null;
 				return tmp;
 			} else {
@@ -70,20 +68,11 @@ public class CircularLinkedList {
 			
 		}
 		
-//		Node current = first;
-//		while(current != null) {
-//			if(current.nextNode.nextNode == null) {
-//				current.nextNode = null;
-//				last = current;
-//				break;
-//			}
-//			current = current.nextNode;
-//		}
 	}
 	
 	public void displayList() {
 		System.out.println("List (first --> last) ");
-		Node current = first;
+		NodeChar current = first;
 		while(current != null) {
 			current.displayNode();
 			current = current.nextNode;
